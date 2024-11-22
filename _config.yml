@@ -112,6 +112,7 @@ contact_note: >
 # -----------------------------------------------------------------------------
 
 google_analytics:  # your Google Analytics measurement ID (format: G-XXXXXXXXXX)
+ga4_analytics: G-RRBBC9DKWJ
 cronitor_analytics:  # cronitor RUM analytics site ID (format: XXXXXXXXX)
 
 google_site_verification:  # your google-site-verification ID (Google Search Console)
@@ -361,7 +362,7 @@ jekyll-diagrams:
 # Optional Features
 # -----------------------------------------------------------------------------
 
-enable_google_analytics:    false  # enables google analytics
+enable_google_analytics:    true  # enables google analytics
 enable_cronitor_analytics:  false  # enables cronitor RUM analytics
 enable_google_verification: true  # enables google site verification
 enable_bing_verification:   true  # enables bing site verification
