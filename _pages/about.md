@@ -2,12 +2,12 @@
 layout: about
 title: about
 permalink: /
-subtitle: Ph.D. student in Finance at UMN Carlson
+subtitle: PhD Candidate in Finance · Carlson School of Management · University of Minnesota
 # subtitle: <a href='#'>Affiliations</a>. Address. Contacts. Moto. Etc.
 
 profile:
   align: right
-  # image: prof_pic.jpg
+  image: 20260628_01_cropped.jpg
   image_circular: false # crops the image to make it circular
   more_info:
   # more_info: >
