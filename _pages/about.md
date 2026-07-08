@@ -1,6 +1,6 @@
 ---
 layout: about
-title: about
+title: About
 permalink: /
 subtitle: PhD Candidate in Finance · Carlson School of Management · University of Minnesota
 # subtitle: <a href='#'>Affiliations</a>. Address. Contacts. Moto. Etc.
