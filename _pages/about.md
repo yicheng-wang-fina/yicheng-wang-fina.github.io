@@ -7,7 +7,7 @@ subtitle: PhD Candidate in Finance · Carlson School of Management · University
 
 profile:
   align: right
-  image: 20260628_01_cropped_size.jpg
+  image: 20260628_01_square.jpg
   image_circular: false # crops the image to make it circular
   more_info:
   # more_info: >
