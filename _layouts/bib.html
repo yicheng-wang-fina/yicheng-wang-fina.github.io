@@ -30,7 +30,7 @@
         {%- endif -%}
 
         <!-- Entry bib key -->
-        <div id="{{entry.key}}" class="{% if site.enable_publication_thumbnails %}col-sm-8{% else %}col-sm-10{% endif %}">
+        <div id="{{entry.key}}" class="{% if site.enable_publication_thumbnails %}col-sm-8{% else %}col-sm-12{% endif %}">
         <!-- Title -->
         <div class="title">{{entry.title}}</div>
         <!-- Author: solo papers show nothing; coauthored papers show "with X" / "with X and Y" / "with X, Y, and Z" -->
@@ -103,10 +103,10 @@
         {% assign entrytype_text = entrytype | strip_html | strip %}
         {%- capture periodical -%}{{ entrytype }}{%- if entrytype_text != "" and entryyear != "" -%}, {%- endif -%}{{ entrymonth }}{{ entryyear }}{%- endcapture -%}
         <div class="periodical">
-          {{ periodical | strip }}
-        </div>
-        <div class="periodical">
           <em>{{ entry.note | strip }}</em>
+        </div>
+        <div class="periodical date">
+          {{ periodical | strip }}
         </div>
 
           <!-- Links/Buttons -->

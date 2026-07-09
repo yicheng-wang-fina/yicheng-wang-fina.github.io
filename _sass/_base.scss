@@ -216,8 +216,7 @@ blockquote {
 .navbar {
   box-shadow: none;
   border-bottom: 1px solid var(--global-divider-color);
-  background-color: var(--global-bg-color);
-  opacity: 0.95;
+  background-color: var(--global-navbar-bg-color);
 }
 
 .navbar .dropdown-menu {
@@ -269,9 +268,20 @@ blockquote {
     background-color: inherit;
     font-weight: bolder;
     color: var(--global-theme-color);
+    position: relative;
 
     &:hover {
       color: var(--global-hover-color);
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: -8px;
+      height: 2px;
+      background-color: var(--global-theme-color);
     }
   }
 
@@ -644,6 +654,13 @@ footer.sticky-bottom {
     }
   }
 
+  .bibliography-section-title {
+    font-weight: 700;
+    font-size: 1.4rem;
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+  }
+
   h2.bibliography {
     color: var(--global-divider-color);
     border-top: 1px solid var(--global-divider-color);
@@ -659,7 +676,16 @@ footer.sticky-bottom {
     margin-top: 0;
 
     li {
-      margin-bottom: 1rem;
+      margin-bottom: 1.25rem;
+      padding: 1.1rem 1rem 0.75rem;
+      border-radius: 10px;
+      background-color: var(--global-card-bg-color);
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06), 0 4px 14px rgba(0, 0, 0, 0.05);
+      transition: box-shadow 0.15s ease;
+
+      &:hover {
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08), 0 8px 20px rgba(0, 0, 0, 0.07);
+      }
 
       .preview {
         width: 100%;
@@ -696,6 +722,11 @@ footer.sticky-bottom {
         font-weight: bolder;
       }
 
+      .periodical.date {
+        font-size: 0.8rem;
+        color: var(--global-text-color-light);
+      }
+
       .author {
         a {
           border-bottom: 1px dashed var(--global-theme-color);
@@ -725,16 +756,24 @@ footer.sticky-bottom {
 
       .links {
         a.btn {
-          color: var(--global-text-color);
-          border: 1px solid var(--global-text-color);
+          color: var(--global-theme-color);
+          background-color: transparent;
+          border: 1px solid var(--global-theme-color);
+          border-radius: 999px;
           padding-left: 1rem;
           padding-right: 1rem;
-          padding-top: 0.25rem;
-          padding-bottom: 0.25rem;
+          padding-top: 0.3rem;
+          padding-bottom: 0.3rem;
           margin-left: 0;
+          margin-right: 0.4rem;
+          margin-bottom: 0;
+          font-weight: 600;
+          font-size: 0.8rem;
+          transition: background-color 0.15s ease, color 0.15s ease;
 
           &:hover {
-            color: var(--global-theme-color);
+            color: var(--global-hover-text-color);
+            background-color: var(--global-theme-color);
             border-color: var(--global-theme-color);
           }
         }
@@ -759,7 +798,7 @@ footer.sticky-bottom {
         font-size: 0.875rem;
         max-height: 0px;
         overflow: hidden;
-        text-align: justify;
+        text-align: left;
         transition-property: 0.15s ease;
         -moz-transition: 0.15s ease;
         -ms-transition: 0.15s ease;
@@ -767,8 +806,8 @@ footer.sticky-bottom {
         transition: all 0.15s ease;
 
         p {
-          line-height: 1.4em;
-          margin: 10px;
+          line-height: 1.6em;
+          margin: 0;
         }
 
         pre {
@@ -788,11 +827,13 @@ footer.sticky-bottom {
       }
 
       div.abstract.hidden {
-        border: dashed 1px var(--global-bg-color);
+        border-radius: 6px;
+        background-color: var(--global-abstract-bg-color);
       }
 
       div.abstract.hidden.open {
-        border-color: var(--global-text-color);
+        padding: 0.85rem 1.05rem;
+        margin-top: 0.85rem;
       }
     }
   }
