@@ -254,7 +254,7 @@ blockquote {
 
   .navbar-brand {
     color: var(--global-text-color);
-    font-family: "Libertinus Serif", serif;
+    font-family: "Libertinus Sans", sans-serif;
     font-weight: 700;
   }
 
@@ -514,7 +514,7 @@ footer.sticky-bottom {
 }
 
 .post-title {
-  font-family: "Libertinus Serif", serif;
+  font-family: "Libertinus Sans", sans-serif;
   font-weight: 700;
 
   mjx-container[jax="CHTML"][display="true"] {
@@ -530,7 +530,7 @@ footer.sticky-bottom {
 
 // Section headings within page content (about page's "news"/"selected publications", research).
 h2.section-head {
-  font-family: "Libertinus Serif", serif;
+  font-family: "Libertinus Sans", sans-serif;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.06em;
@@ -683,7 +683,7 @@ h2.section-head {
   }
 
   .bibliography-section-title {
-    font-family: "Libertinus Serif", serif;
+    font-family: "Libertinus Sans", sans-serif;
     font-weight: 700;
     font-size: 1.6rem;
     margin-top: 0;
@@ -788,7 +788,7 @@ h2.section-head {
       }
 
       .periodical.accolade {
-        font-family: "Libertinus Serif", serif;
+        font-family: "Libertinus Sans", sans-serif;
         font-size: 0.88rem;
         font-style: italic;
         color: var(--global-text-color);
@@ -956,7 +956,8 @@ progress {
   position: fixed;
   left: 0;
   top: 57px;
-  z-index: 10;
+  margin-top: -1px;
+  z-index: 1031;
 
   /* Dimensions */
   width: 100%;
