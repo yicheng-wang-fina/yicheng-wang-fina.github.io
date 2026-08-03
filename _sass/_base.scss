@@ -36,10 +36,10 @@ table {
 
 a,
 table.table a {
-  color: var(--global-theme-color);
+  color: var(--global-link-color);
 
   &:hover {
-    color: var(--global-theme-color);
+    color: var(--global-link-color);
     text-decoration: underline;
   }
 
@@ -254,10 +254,13 @@ blockquote {
 
   .navbar-brand {
     color: var(--global-text-color);
+    font-family: "Libertinus Serif", serif;
+    font-weight: 700;
   }
 
   .navbar-nav .nav-item .nav-link {
     color: var(--global-text-color);
+    font-family: "Libertinus Sans", sans-serif;
 
     &:hover {
       color: var(--global-hover-color);
@@ -511,9 +514,34 @@ footer.sticky-bottom {
 }
 
 .post-title {
+  font-family: "Libertinus Serif", serif;
+  font-weight: 700;
+
   mjx-container[jax="CHTML"][display="true"] {
     display: unset;
   }
+}
+
+.desc {
+  font-family: "Libertinus Sans", sans-serif;
+  color: var(--global-text-color-light);
+  letter-spacing: 0.01em;
+}
+
+// Section headings within page content (about page's "news"/"selected publications", research).
+h2.section-head {
+  font-family: "Libertinus Serif", serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-size: 1.1rem;
+}
+
+// Separates the vita/news content above from the merged research section below.
+.content-divider {
+  margin: 3rem 0 2.5rem;
+  border: none;
+  border-top: 1px solid var(--global-divider-color);
 }
 
 .post-list {
@@ -655,8 +683,9 @@ footer.sticky-bottom {
   }
 
   .bibliography-section-title {
+    font-family: "Libertinus Serif", serif;
     font-weight: 700;
-    font-size: 1.4rem;
+    font-size: 1.6rem;
     margin-top: 0;
     margin-bottom: 1.5rem;
   }
@@ -719,15 +748,19 @@ footer.sticky-bottom {
       }
 
       .title {
-        font-weight: bolder;
-      }
-
-      .periodical.date {
-        font-size: 0.8rem;
-        color: var(--global-text-color-light);
+        font-family: "Libertinus Sans", sans-serif;
+        font-weight: 700;
+        font-size: 1.1rem;
+        line-height: 1.35;
+        letter-spacing: -0.015em;
+        margin-bottom: 0.3rem;
       }
 
       .author {
+        font-size: 0.88rem;
+        color: var(--global-text-color);
+        margin-bottom: 0.2rem;
+
         a {
           border-bottom: 1px dashed var(--global-theme-color);
 
@@ -754,21 +787,42 @@ footer.sticky-bottom {
         }
       }
 
+      .periodical.accolade {
+        font-family: "Libertinus Serif", serif;
+        font-size: 0.88rem;
+        font-style: italic;
+        color: var(--global-text-color);
+        margin-bottom: 0.2rem;
+
+        em {
+          font-style: italic;
+        }
+      }
+
+      .periodical.date {
+        font-size: 0.88rem;
+        color: var(--global-text-color-light);
+        margin-bottom: 0.6rem;
+      }
+
       .links {
+        margin-top: 0.4rem;
+
         a.btn {
           color: var(--global-theme-color);
           background-color: transparent;
           border: 1px solid var(--global-theme-color);
           border-radius: 999px;
-          padding-left: 1rem;
-          padding-right: 1rem;
-          padding-top: 0.3rem;
-          padding-bottom: 0.3rem;
+          padding-left: 0.7rem;
+          padding-right: 0.7rem;
+          padding-top: 0.15rem;
+          padding-bottom: 0.15rem;
           margin-left: 0;
           margin-right: 0.4rem;
           margin-bottom: 0;
+          font-family: "Libertinus Sans", sans-serif;
           font-weight: 600;
-          font-size: 0.8rem;
+          font-size: 0.72rem;
           transition: background-color 0.15s ease, color 0.15s ease;
 
           &:hover {
@@ -826,14 +880,10 @@ footer.sticky-bottom {
         transition: all 0.15s ease;
       }
 
-      div.abstract.hidden {
-        border-radius: 6px;
-        background-color: var(--global-abstract-bg-color);
-      }
-
       div.abstract.hidden.open {
-        padding: 0.85rem 1.05rem;
         margin-top: 0.85rem;
+        padding-top: 0.75rem;
+        border-top: 1px solid var(--global-divider-color);
       }
     }
   }
@@ -905,7 +955,7 @@ progress {
   /* Positioning */
   position: fixed;
   left: 0;
-  top: 56px;
+  top: 57px;
   z-index: 10;
 
   /* Dimensions */
@@ -943,7 +993,7 @@ progress::-moz-progress-bar {
   width: 100%;
   background-color: transparent;
   position: fixed;
-  top: 56px;
+  top: 57px;
   left: 0;
   height: 5px;
   display: block;

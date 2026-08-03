@@ -19,6 +19,68 @@ $max-content-width: {{ site.max_width }};
   "font-awesome/regular"
 ;
 
+// Self-hosted (not Google Fonts) so title/heading typography never depends on a third-party
+// font CDN request succeeding at render time.
+@font-face {
+  font-family: "Libertinus Serif";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("{{ '/assets/webfonts/libertinus-serif-400.woff2' | relative_url }}") format("woff2");
+}
+@font-face {
+  font-family: "Libertinus Serif";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("{{ '/assets/webfonts/libertinus-serif-700.woff2' | relative_url }}") format("woff2");
+}
+@font-face {
+  font-family: "Libertinus Serif";
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url("{{ '/assets/webfonts/libertinus-serif-400-italic.woff2' | relative_url }}") format("woff2");
+}
+@font-face {
+  font-family: "Libertinus Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("{{ '/assets/webfonts/libertinus-sans-400.woff2' | relative_url }}") format("woff2");
+}
+@font-face {
+  font-family: "Libertinus Sans";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("{{ '/assets/webfonts/libertinus-sans-700.woff2' | relative_url }}") format("woff2");
+}
+@font-face {
+  font-family: "Libertinus Sans";
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url("{{ '/assets/webfonts/libertinus-sans-400-italic.woff2' | relative_url }}") format("woff2");
+}
+
+// Variable font (single file covers the whole weight axis), Latin subset only.
+@font-face {
+  font-family: "Source Sans 3";
+  font-style: normal;
+  font-weight: 200 900;
+  font-display: swap;
+  src: url("{{ '/assets/webfonts/source-sans-3-variable.woff2' | relative_url }}") format("woff2");
+}
+@font-face {
+  font-family: "Source Sans 3";
+  font-style: italic;
+  font-weight: 200 900;
+  font-display: swap;
+  src: url("{{ '/assets/webfonts/source-sans-3-variable-italic.woff2' | relative_url }}") format("woff2");
+}
+
 body {
   font-family: "Source Sans 3", sans-serif;
+  font-weight: 350;
 }

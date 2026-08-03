@@ -10,10 +10,15 @@ $red-color-my:        #bc3823 !default;
 $orange-color:        #F29105 !default;
 $blue-color:          #0076df !default;
 $blue-color-dark:     #00369f !default;
-$blue-color-my:       #1f2a66 !default;
+// Theme accent (light mode): dusty slate blue.
+$blue-color-my:       #3A5F73 !default;
 $blue-color-my-light: lighten($blue-color-my, 25%);
-$cyan-color:          #2698BA !default;
+// Theme accent (dark mode): lighter dusty blue for contrast on a dark ground.
+$cyan-color:          #86AABF !default;
 $light-cyan-color:    lighten($cyan-color, 25%);
+// Warm accent, used only for inline text links.
+$bronze-color:        #9C7647 !default;
+$bronze-color-dark:   #C9A06B !default;
 $green-color:         #00ab37 !default;
 $green-color-lime:    #B7D12A !default;
 $green-color-dark:    #009f06 !default;
