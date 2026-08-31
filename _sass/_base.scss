@@ -132,6 +132,8 @@ blockquote {
 
 .card {
   background-color: var(--global-card-bg-color);
+  border: 0;
+  box-shadow: 0 1px 3px rgba(18, 24, 28, 0.09), 0 1px 2px rgba(18, 24, 28, 0.05);
 
   img {
     width: 100%;
@@ -215,7 +217,7 @@ blockquote {
 
 .navbar {
   box-shadow: none;
-  border-bottom: 1px solid var(--global-divider-color);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.25);
   background-color: var(--global-navbar-bg-color);
 }
 
@@ -253,28 +255,28 @@ blockquote {
   }
 
   .navbar-brand {
-    color: var(--global-text-color);
+    color: var(--global-navbar-text-color);
     font-family: "Libertinus Sans", sans-serif;
     font-weight: 700;
   }
 
   .navbar-nav .nav-item .nav-link {
-    color: var(--global-text-color);
+    color: var(--global-navbar-text-color);
     font-family: "Libertinus Sans", sans-serif;
 
     &:hover {
-      color: var(--global-hover-color);
+      color: var(--global-navbar-accent-color);
     }
   }
 
   .navbar-nav .nav-item.active>.nav-link {
     background-color: inherit;
     font-weight: bolder;
-    color: var(--global-theme-color);
+    color: #ffffff;
     position: relative;
 
     &:hover {
-      color: var(--global-hover-color);
+      color: #ffffff;
     }
 
     &::after {
@@ -284,7 +286,7 @@ blockquote {
       right: 0;
       bottom: -8px;
       height: 2px;
-      background-color: var(--global-theme-color);
+      background-color: #ffffff;
     }
   }
 
@@ -295,13 +297,13 @@ blockquote {
 
     a {
       i::before {
-        color: var(--global-text-color);
+        color: var(--global-navbar-text-color);
         transition-property: all 0.2s ease-in-out;
       }
 
       &:hover {
         i::before {
-          color: var(--global-theme-color);
+          color: var(--global-navbar-accent-color);
         }
       }
     }
@@ -313,7 +315,7 @@ blockquote {
     display: block;
     width: 22px;
     height: 2px;
-    background-color: var(--global-text-color);
+    background-color: var(--global-navbar-text-color);
     border-radius: 1px;
     margin-bottom: 4px;
     transition: all 0.2s;
@@ -352,10 +354,10 @@ blockquote {
   padding: 0;
   border: 0;
   background-color: inherit;
-  color: var(--global-text-color);
+  color: var(--global-navbar-text-color);
 
   &:hover {
-    color: var(--global-hover-color);
+    color: var(--global-navbar-accent-color);
   }
 }
 
@@ -525,6 +527,7 @@ footer.sticky-bottom {
 .desc {
   font-family: "Libertinus Sans", sans-serif;
   color: var(--global-text-color-light);
+  font-weight: 400;
   letter-spacing: 0.01em;
 }
 
@@ -538,8 +541,11 @@ h2.section-head {
 }
 
 // Separates the vita/news content above from the merged research section below.
+// Uses the same $section-gap rhythm as the dividers between bibliography sections
+// (see `.publications hr` below) so every section break on the page is spaced alike.
 .content-divider {
-  margin: 3rem 0 2.5rem;
+  clear: both;
+  margin: $section-gap 0;
   border: none;
   border-top: 1px solid var(--global-divider-color);
 }
@@ -664,7 +670,17 @@ h2.section-head {
 // Publications
 
 .publications {
-  margin-top: 2rem;
+  // The space above this block is owned entirely by the preceding `.content-divider`
+  // ($section-gap), so no extra top margin here.
+  margin-top: 0;
+
+  // Rules between bibliography sections (Publications / Working Papers / Work in
+  // Progress). Spaced identically to `.content-divider` so every section break matches.
+  hr {
+    margin: $section-gap 0;
+    border: none;
+    border-top: 1px solid var(--global-divider-color);
+  }
 
   h1 {
     color: var(--global-theme-color);
@@ -686,8 +702,10 @@ h2.section-head {
     font-family: "Libertinus Sans", sans-serif;
     font-weight: 700;
     font-size: 1.6rem;
+    // Top spacing comes from the divider above (first section) or `.publications hr`
+    // (later sections); only the gap down to the first card is set here.
     margin-top: 0;
-    margin-bottom: 1.5rem;
+    margin-bottom: $section-title-gap;
   }
 
   h2.bibliography {
@@ -702,15 +720,22 @@ h2.section-head {
   ol.bibliography {
     list-style: none;
     padding: 0;
-    margin-top: 0;
+    // No outer margin: the gap above is `.bibliography-section-title`'s bottom margin,
+    // the gap below is the next `hr`'s top margin (or $section-gap before the Social block).
+    margin: 0;
 
     li {
-      margin-bottom: 1.25rem;
+      margin-bottom: $card-gap;
       padding: 1.1rem 1rem 0.75rem;
       border-radius: 10px;
       background-color: var(--global-card-bg-color);
       box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06), 0 4px 14px rgba(0, 0, 0, 0.05);
       transition: box-shadow 0.15s ease;
+
+      // Last card in a section: the gap below is owned by the next `hr` / $section-gap.
+      &:last-child {
+        margin-bottom: 0;
+      }
 
       &:hover {
         box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08), 0 8px 20px rgba(0, 0, 0, 0.07);
@@ -961,7 +986,7 @@ progress {
 
   /* Dimensions */
   width: 100%;
-  height: 1px;
+  height: 3px;
 
   /* Reset the appearance */
   -webkit-appearance: none;
@@ -975,7 +1000,7 @@ progress {
   background-color: transparent;
 
   /* Progress bar value for IE10  */
-  color: var(--global-theme-color);
+  color: var(--global-progress-color);
 }
 
 progress::-webkit-progress-bar {
@@ -983,11 +1008,11 @@ progress::-webkit-progress-bar {
 }
 
 progress::-webkit-progress-value {
-  background-color: var(--global-theme-color);
+  background-color: var(--global-progress-color);
 }
 
 progress::-moz-progress-bar {
-  background-color: var(--global-theme-color);
+  background-color: var(--global-progress-color);
 }
 
 .progress-container {
@@ -1001,7 +1026,7 @@ progress::-moz-progress-bar {
 }
 
 .progress-bar {
-  background-color: var(--global-theme-color);
+  background-color: var(--global-progress-color);
   width: 0%;
   display: block;
   height: inherit;
