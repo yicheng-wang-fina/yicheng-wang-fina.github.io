@@ -59,7 +59,7 @@
           {%- assign coauthor_index = coauthor_index | plus: 1 -%}
           {%- if coauthor_index > 1 -%}
             {%- if coauthor_index == coauthor_total -%}
-              {%- if coauthor_total > 2 -%}, and&nbsp;{%- else -%} and&nbsp;{%- endif -%}
+              {%- if coauthor_total > 2 -%}, and&nbsp;{%- else -%}{{ " " }}and&nbsp;{%- endif -%}
             {%- else -%},&nbsp;{%- endif -%}
           {%- endif -%}
           {%- assign coauthor_url = nil -%}
@@ -110,6 +110,11 @@
         <div class="periodical date">
           {{ periodical | strip }}
         </div>
+        {%- if entry.previous_title %}
+        <div class="periodical previous-title">
+          Previously circulated as &ldquo;{{ entry.previous_title | strip }}&rdquo;
+        </div>
+        {%- endif %}
 
           <!-- Links/Buttons -->
           <div class="links">
